@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 正常：http://localhost:8007/payment/circuit/timeout/18
+ * 异常：http://localhost:8007/payment/circuit/timeout/-19
+ */
 @RestController
 @Slf4j
 public class PaymentController {
