@@ -1,0 +1,32 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud: #网关配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true #利用微服务名进行路由
+      routes:
+        - id: payment_rounth
+          #uri: http://localhost:8001
+          uri: lb://cloud-provider-service #动态路由
+          predicates:
+            - Path=/payment/get/**
+
+        - id: payment_rounth2
+          #uri: http://localhost:8001
+          uri: lb://cloud-provider-service  #动态路由
+          predicates:
+            - Path=/payment/timeout/**
+eureka:
+  client:
+    #表示是否将自己注册进EurekaServer默认为true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      #defaultZone: http://locahost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
