@@ -26,6 +26,9 @@
       <module>cloud-gateway-gateway9527</module>
       <module>cloud-config-center-3344</module>
       <module>cloud-config-client-3355</module>
+    <module>cloud-provider-payment9001</module>
+    <module>cloud-provider-payment9003</module>
+      <module>cloud-alibaba-consumer-nacos-order83</module>
   </modules>
 
   <!-- 统一jar包版本-->
